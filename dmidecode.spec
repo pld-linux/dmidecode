@@ -26,13 +26,16 @@ u¿yteczne kawa³ki informacji takie jak numery seryjne i rewizja BIOSu.
 %setup -q
 
 %build
-%{__make}
+%{__make} \
+	CC="%{__cc}" \
+	CFLAGS="%{rpmcflags} -Wall -W -pedantic"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_sbindir}
 
-%{__make} install PREFIX=$RPM_BUILD_ROOT/usr
+%{__make} install \
+	PREFIX=$RPM_BUILD_ROOT%{_prefix}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
