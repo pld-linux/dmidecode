@@ -32,7 +32,7 @@ u¿yteczne kawa³ki informacji takie jak numery seryjne i rewizja BIOSu.
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_sbindir}
 
-%{__make} install PREFIX=$RPM_BUILD_ROOT
+%{__make} install PREFIX=$RPM_BUILD_ROOT/usr
 
 %clean
 rm -rf $RPM_BUILD_ROOT
