@@ -5,7 +5,7 @@ Version:	2.1
 Release:	0.1
 License:	GPL
 Group:		Applications/System
-Source0:	http://savannah.nongnu.org/download/dmidecode/dmidecode.pkg/2.1/%{name}-%{version}.tar.bz2
+Source0:	http://savannah.nongnu.org/download/%{name}/%{name}.pkg/%{version}/%{name}-%{version}.tar.bz2
 # Source0-md5:	b5717e623b7aaceee7c46ba3205c2d10
 URL:		http://www.nongnu.org/dmidecode
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
