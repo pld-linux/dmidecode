@@ -1,12 +1,13 @@
 Summary:	A tool for dumping a computer's DMI table contents
 Summary(pl):	Narzêdzie do zrzucania zawarto¶ci tabeli DMI komputera
 Name:		dmidecode
-Version:	2.3
-Release:	3
+Version:	2.4
+Release:	1
 License:	GPL
 Group:		Applications/System
-Source0:	http://savannah.nongnu.org/download/%{name}/%{name}.pkg/%{version}/%{name}-%{version}.tar.bz2
-# Source0-md5:	b826e2eda9a1710c85e11e5c26920d23
+Source0:	http://savannah.nongnu.org/download/%{name}/%{name}-%{version}.tar.bz2
+# Source0-md5:	dab0937d69ee5b90ccaefa3c28071718
+Patch0:		%{name}-mandir.patch
 URL:		http://www.nongnu.org/dmidecode
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -24,6 +25,7 @@ u¿yteczne kawa³ki informacji takie jak numery seryjne i rewizja BIOSu.
 
 %prep
 %setup -q
+%patch0
 
 %build
 %{__make} \
@@ -32,7 +34,7 @@ u¿yteczne kawa³ki informacji takie jak numery seryjne i rewizja BIOSu.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_sbindir}
+install -d $RPM_BUILD_ROOT{%{_sbindir},%{_mandir}/man8}
 
 %{__make} install \
 	PREFIX=$RPM_BUILD_ROOT%{_prefix}
@@ -44,3 +46,4 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc CHANGELOG README AUTHORS
 %attr(755,root,root) %{_sbindir}/*
+%{_mandir}/man?/*
