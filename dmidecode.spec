@@ -2,12 +2,13 @@ Summary:	A tool for dumping a computer's DMI table contents
 Summary(pl):	Narzêdzie do zrzucania zawarto¶ci tabeli DMI komputera
 Name:		dmidecode
 Version:	2.5
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/System
 Source0:	http://savannah.nongnu.org/download/%{name}/%{name}-%{version}.tar.bz2
 # Source0-md5:	df1900d748cc227fcac31552ce558574
 Patch0:		%{name}-mandir.patch
+Patch1:		%{name}-vpddecode.patch
 URL:		http://www.nongnu.org/dmidecode
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -26,6 +27,7 @@ u¿yteczne kawa³ki informacji takie jak numery seryjne i rewizja BIOSu.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__make} \
