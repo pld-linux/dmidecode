@@ -25,7 +25,7 @@ Tabela ta zawiera opis sprzêtowych komponentów systemu, a tak¿e
 u¿yteczne kawa³ki informacji takie jak numery seryjne i rewizja BIOSu.
 
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q
 
 %build
 %{__make}
