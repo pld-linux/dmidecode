@@ -1,17 +1,12 @@
---- Makefile~	2004-02-23 19:56:04.000000000 +0100
-+++ Makefile	2004-03-25 18:49:15.000000000 +0100
-@@ -71,10 +71,10 @@
- 	install -m 755 biosdecode $(PREFIX)/sbin
- 	install -m 755 ownership $(PREFIX)/sbin
- 	install -m 755 vpddecode $(PREFIX)/sbin
--	install -m 644 man/dmidecode.8 $(PREFIX)/man/man8
--	install -m 644 man/biosdecode.8 $(PREFIX)/man/man8
--	install -m 644 man/ownership.8 $(PREFIX)/man/man8
--	install -m 644 man/vpddecode.8 $(PREFIX)/man/man8
-+	install -m 644 man/dmidecode.8 $(PREFIX)/share/man/man8
-+	install -m 644 man/biosdecode.8 $(PREFIX)/share/man/man8
-+	install -m 644 man/ownership.8 $(PREFIX)/share/man/man8
-+	install -m 644 man/vpddecode.8 $(PREFIX)/share/man/man8
+diff -urN dmidecode-2.5.orig/Makefile dmidecode-2.5/Makefile
+--- dmidecode-2.5.orig/Makefile	2004-11-11 22:23:34.453338320 +0100
++++ dmidecode-2.5/Makefile	2004-11-11 22:40:56.207967544 +0100
+@@ -25,7 +25,7 @@
+ DESTDIR =
+ prefix  = /usr/local
+ sbindir = $(prefix)/sbin
+-mandir  = $(prefix)/man
++mandir  = $(prefix)/share/man
+ man8dir = $(mandir)/man8
  
- uninstall :
- 	rm -f $(PREFIX)/sbin/dmidecode $(PREFIX)/man/man8/dmidecode.8
+ all : dmidecode biosdecode ownership vpddecode
