@@ -37,6 +37,8 @@ rm -rf $RPM_BUILD_ROOT
 	prefix=%{_prefix} \
 	DESTDIR=$RPM_BUILD_ROOT
 
+rm -rf $RPM_BUILD_ROOT%{_docdir}/dmidecode
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
