@@ -1,5 +1,5 @@
 Summary:	A tool for dumping a computer's DMI table contents
-Summary(pl.UTF-8):   Narzędzie do zrzucania zawartości tabeli DMI komputera
+Summary(pl.UTF-8):	Narzędzie do zrzucania zawartości tabeli DMI komputera
 Name:		dmidecode
 Version:	2.8
 Release:	1
