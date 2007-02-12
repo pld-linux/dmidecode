@@ -1,5 +1,5 @@
 Summary:	A tool for dumping a computer's DMI table contents
-Summary(pl):	Narzêdzie do zrzucania zawarto¶ci tabeli DMI komputera
+Summary(pl.UTF-8):   NarzÄ™dzie do zrzucania zawartoÅ›ci tabeli DMI komputera
 Name:		dmidecode
 Version:	2.8
 Release:	1
@@ -16,11 +16,11 @@ table contents in a human-readable format. This table contains a
 description of the system's hardware components, as well as other
 useful pieces of information such as serial numbers and BIOS revision.
 
-%description -l pl
-Dmidecode jest narzêdziem do zrzucania zawarto¶ci DMI (niektórzy mówi±
-na to SMBIOS) komputera w formacie odczytywalnym przez cz³owieka.
-Tabela ta zawiera opis sprzêtowych komponentów systemu, a tak¿e
-u¿yteczne kawa³ki informacji takie jak numery seryjne i rewizja BIOSu.
+%description -l pl.UTF-8
+Dmidecode jest narzÄ™dziem do zrzucania zawartoÅ›ci DMI (niektÃ³rzy mÃ³wiÄ…
+na to SMBIOS) komputera w formacie odczytywalnym przez czÅ‚owieka.
+Tabela ta zawiera opis sprzÄ™towych komponentÃ³w systemu, a takÅ¼e
+uÅ¼yteczne kawaÅ‚ki informacji takie jak numery seryjne i rewizja BIOSu.
 
 %prep
 %setup -q
