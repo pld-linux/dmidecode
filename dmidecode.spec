@@ -1,14 +1,13 @@
 Summary:	A tool for dumping a computer's DMI table contents
-Summary(pl):	Narzêdzie do zrzucania zawarto¶ci tabeli DMI komputera
+Summary(pl.UTF-8):	NarzÄ™dzie do zrzucania zawartoÅ›ci tabeli DMI komputera
 Name:		dmidecode
-Version:	2.4
+Version:	2.9
 Release:	1
 License:	GPL
 Group:		Applications/System
-Source0:	http://savannah.nongnu.org/download/%{name}/%{name}-%{version}.tar.bz2
-# Source0-md5:	dab0937d69ee5b90ccaefa3c28071718
-Patch0:		%{name}-mandir.patch
-URL:		http://www.nongnu.org/dmidecode
+Source0:	http://savannah.nongnu.org/download/dmidecode/%{name}-%{version}.tar.bz2
+# Source0-md5:	3dac4b1817012ffebd78671473d8f56c
+URL:		http://www.nongnu.org/dmidecode/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -17,15 +16,14 @@ table contents in a human-readable format. This table contains a
 description of the system's hardware components, as well as other
 useful pieces of information such as serial numbers and BIOS revision.
 
-%description -l pl
-Dmidecode jest narzêdziem do zrzucania zawarto¶ci DMI (niektórzy mówi±
-na to SMBIOS) komputera w formacie odczytywalnym przez cz³owieka.
-Tabela ta zawiera opis sprzêtowych komponentów systemu, a tak¿e
-u¿yteczne kawa³ki informacji takie jak numery seryjne i rewizja BIOSu.
+%description -l pl.UTF-8
+Dmidecode jest narzÄ™dziem do zrzucania zawartoÅ›ci DMI (niektÃ³rzy mÃ³wiÄ…
+na to SMBIOS) komputera w formacie odczytywalnym przez czÅ‚owieka.
+Tabela ta zawiera opis sprzÄ™towych komponentÃ³w systemu, a takÅ¼e
+uÅ¼yteczne kawaÅ‚ki informacji takie jak numery seryjne i rewizja BIOSu.
 
 %prep
 %setup -q
-%patch0
 
 %build
 %{__make} \
@@ -34,16 +32,18 @@ u¿yteczne kawa³ki informacji takie jak numery seryjne i rewizja BIOSu.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_sbindir},%{_mandir}/man8}
 
 %{__make} install \
-	PREFIX=$RPM_BUILD_ROOT%{_prefix}
+	prefix=%{_prefix} \
+	DESTDIR=$RPM_BUILD_ROOT
+
+rm -rf $RPM_BUILD_ROOT%{_docdir}/dmidecode
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc CHANGELOG README AUTHORS
+%doc AUTHORS CHANGELOG README
 %attr(755,root,root) %{_sbindir}/*
 %{_mandir}/man?/*
