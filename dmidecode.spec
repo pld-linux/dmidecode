@@ -8,6 +8,7 @@ Group:		Applications/System
 Source0:	http://savannah.nongnu.org/download/dmidecode/%{name}-%{version}.tar.bz2
 # Source0-md5:	3c9c4d55a40b78600f3b43bfa64616f9
 URL:		http://www.nongnu.org/dmidecode/
+BuildRequires:	sed >= 4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -25,10 +26,14 @@ użyteczne kawałki informacji takie jak numery seryjne i rewizja BIOSu.
 %prep
 %setup -q
 
+# GNU make no longer ignores != assignment
+sed '/PROGRAMS !=/d' -i Makefile
+
 %build
 %{__make} \
 	CC="%{__cc}" \
-	CFLAGS="%{rpmcflags} -Wall -W -pedantic"
+	CFLAGS="%{rpmcppflags} %{rpmcflags} -Wall -W -pedantic" \
+	LDFLAGS="%{rpmcflags} %{rpmldflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
