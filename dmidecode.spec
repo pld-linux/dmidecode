@@ -1,14 +1,13 @@
 Summary:	A tool for dumping a computer's DMI table contents
 Summary(pl.UTF-8):	Narzędzie do zrzucania zawartości tabeli DMI komputera
 Name:		dmidecode
-Version:	2.10
+Version:	2.11
 Release:	1
-License:	GPL
+License:	GPL v2+
 Group:		Applications/System
 Source0:	http://savannah.nongnu.org/download/dmidecode/%{name}-%{version}.tar.bz2
-# Source0-md5:	3c9c4d55a40b78600f3b43bfa64616f9
+# Source0-md5:	535487cc041f2db746587cf40a2059f0
 URL:		http://www.nongnu.org/dmidecode/
-BuildRequires:	sed >= 4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -21,13 +20,11 @@ useful pieces of information such as serial numbers and BIOS revision.
 Dmidecode jest narzędziem do zrzucania zawartości DMI (niektórzy mówią
 na to SMBIOS) komputera w formacie odczytywalnym przez człowieka.
 Tabela ta zawiera opis sprzętowych komponentów systemu, a także
-użyteczne kawałki informacji takie jak numery seryjne i rewizja BIOSu.
+użyteczne kawałki informacji takie jak numery seryjne i rewizja
+BIOS-u.
 
 %prep
 %setup -q
-
-# GNU make no longer ignores != assignment
-sed '/PROGRAMS !=/d' -i Makefile
 
 %build
 %{__make} \
@@ -50,5 +47,11 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS CHANGELOG README
-%attr(755,root,root) %{_sbindir}/*
-%{_mandir}/man?/*
+%attr(755,root,root) %{_sbindir}/biosdecode
+%attr(755,root,root) %{_sbindir}/dmidecode
+%attr(755,root,root) %{_sbindir}/ownership
+%attr(755,root,root) %{_sbindir}/vpddecode
+%{_mandir}/man8/biosdecode.8*
+%{_mandir}/man8/dmidecode.8*
+%{_mandir}/man8/ownership.8*
+%{_mandir}/man8/vpddecode.8*
