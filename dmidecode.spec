@@ -7,6 +7,7 @@ License:	GPL v2+
 Group:		Applications/System
 Source0:	http://savannah.nongnu.org/download/dmidecode/%{name}-%{version}.tar.xz
 # Source0-md5:	281ee572d45c78eca73a14834c495ffd
+Patch0:		%{name}-fixes.patch
 URL:		http://www.nongnu.org/dmidecode/
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
@@ -27,6 +28,7 @@ BIOS-u.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__make} \
