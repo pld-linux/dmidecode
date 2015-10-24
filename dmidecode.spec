@@ -1,14 +1,15 @@
 Summary:	A tool for dumping a computer's DMI table contents
 Summary(pl.UTF-8):	Narzędzie do zrzucania zawartości tabeli DMI komputera
 Name:		dmidecode
-Version:	2.12
-Release:	2
+Version:	3.0
+Release:	1
 License:	GPL v2+
 Group:		Applications/System
-Source0:	http://savannah.nongnu.org/download/dmidecode/%{name}-%{version}.tar.bz2
-# Source0-md5:	a406f3cbb27736491698697beeddb781
-Patch0:		dmidecode-2.12-smbios_fix.patch
+Source0:	http://savannah.nongnu.org/download/dmidecode/%{name}-%{version}.tar.xz
+# Source0-md5:	281ee572d45c78eca73a14834c495ffd
 URL:		http://www.nongnu.org/dmidecode/
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	xz
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -26,7 +27,6 @@ BIOS-u.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__make} \
@@ -41,7 +41,7 @@ rm -rf $RPM_BUILD_ROOT
 	prefix=%{_prefix} \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -rf $RPM_BUILD_ROOT%{_docdir}/dmidecode
+%{__rm} -r $RPM_BUILD_ROOT%{_docdir}/dmidecode
 
 %clean
 rm -rf $RPM_BUILD_ROOT
