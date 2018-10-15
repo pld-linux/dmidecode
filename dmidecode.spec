@@ -1,12 +1,12 @@
 Summary:	A tool for dumping a computer's DMI table contents
 Summary(pl.UTF-8):	Narzędzie do zrzucania zawartości tabeli DMI komputera
 Name:		dmidecode
-Version:	3.1
+Version:	3.2
 Release:	1
 License:	GPL v2+
 Group:		Applications/System
 Source0:	http://savannah.nongnu.org/download/dmidecode/%{name}-%{version}.tar.xz
-# Source0-md5:	679c2c015c515aa6ca5f229aee49c102
+# Source0-md5:	9cc2e27e74ade740a25b1aaf0412461b
 URL:		http://www.nongnu.org/dmidecode/
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
@@ -48,7 +48,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS CHANGELOG README
+%doc AUTHORS NEWS README
 %attr(755,root,root) %{_sbindir}/biosdecode
 %attr(755,root,root) %{_sbindir}/dmidecode
 %attr(755,root,root) %{_sbindir}/ownership
